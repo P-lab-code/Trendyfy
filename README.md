@@ -1,136 +1,112 @@
-# 🛍️ Trendyfy — Full-Stack E-Commerce Platform
+# 🛍️ Trendyfy — Full-Stack E-Commerce Application
 
-A modern **full-stack e-commerce web application** built with **React.js, Spring Boot, PostgreSQL, JWT Authentication, and Python Flask**.
+Trendyfy is a full-stack e-commerce web application built using **React.js, Java, Spring Boot, Spring Data JPA, Hibernate, and PostgreSQL**.
 
-Trendyfy provides a complete online shopping experience with user authentication, product browsing, categories, search and filtering, cart and wishlist management, checkout, orders, payment integration, and a dedicated admin panel for managing products and users.
+The application provides user authentication, product browsing, categories, cart, wishlist, checkout, orders, and an admin panel for managing products and users.
 
 ---
 
-## 🌐 Project Overview
+## ✨ Features
 
-**Trendyfy** is designed as a complete e-commerce platform with separate frontend, backend, and ML-powered image search services.
+### 👤 User Features
 
-### 👤 Customer Features
-
-* User Registration & Login
-* JWT-based authentication
-* Secure user sessions
-* Browse products by category
-* Product search
-* Product filtering
-* Product sorting
-* Product pagination
-* Product details
-* Add products to cart
-* Update cart quantity
-* Remove products from cart
-* Wishlist management
+* User Registration
+* User Login
+* JWT Authentication
+* Browse Products
+* Product Search
+* Product Filtering
+* Product Categories
+* Product Details
+* Add to Cart
+* Update Cart Quantity
+* Remove from Cart
+* Wishlist
 * Checkout
-* Order placement
-* Order success page
-* Responsive shopping interface
+* Order Placement
+* Order Management
 
 ### 👨‍💼 Admin Features
 
-Trendyfy includes a dedicated **Admin Panel** for managing the e-commerce platform.
+The application includes a separate Admin Panel.
 
 Admin can:
 
-* Access the Admin Dashboard
-* View dashboard statistics
-* Add new products
-* Update products
-* Delete products
-* Manage product categories
-* Manage users
-* Manage orders
-* View and control product inventory
-* Manage products through a dedicated admin interface
-
-The application automatically creates a default admin account through the backend `AdminSeeder` configuration when an admin user does not already exist.
+* Login as Admin
+* Access Admin Dashboard
+* View Dashboard
+* Add Products
+* Update Products
+* Delete Products
+* Manage Products
+* Manage Users
+* Manage Orders
+* Manage Categories
 
 ---
 
 ## 🔐 Authentication & Authorization
 
-Trendyfy uses **Spring Security and JWT (JSON Web Token)** for authentication and authorization.
+Trendyfy uses **Spring Security and JWT** for authentication and authorization.
 
 ### Security Features
 
 * User Registration
 * User Login
-* Password encryption
-* JWT token generation
-* JWT request filtering
-* Role-Based Access Control
-* Protected user routes
-* Protected admin routes
-* Separate Admin and User functionality
+* Password Encryption
+* JWT Authentication
+* Role-Based Authorization
+* Protected User APIs
+* Protected Admin APIs
 
-### Default Admin Account
+A default Admin user is created through the backend seeder configuration.
 
-For local development, the project contains an admin seeder that creates the following account if an admin user does not already exist:
-
-```text
-Username: admin
-Email: admin@gmail.com
-Password: admin123
-Role: ADMIN
-```
-
-> ⚠️ Change the default admin credentials before using the application in a production environment.
+> ⚠️ Change the default admin credentials before using the application in production.
 
 ---
 
-# 🛠️ Tech Stack
+## 🛠️ Tech Stack
 
-## 🔙 Backend
+### Frontend
+
+* React.js
+* JavaScript
+* Axios
+* React Router
+* Tailwind CSS
+* HTML5
+* CSS3
+
+### Backend
 
 * Java 17
-* Spring Boot 3.4.5
-* Spring Web
+* Spring Boot
+* Spring MVC
 * Spring Security
 * Spring Data JPA
 * Hibernate
-* PostgreSQL
-* JWT Authentication
-* RESTful APIs
+* REST APIs
+* JWT
 * Maven
-* Bean Validation
-* Stripe Java SDK
-* Docker
 
-## 🔜 Frontend
+### Database
 
-* React.js 19
-* React Router
-* Axios
-* Tailwind CSS
-* React Icons
-* HTML5
-* CSS3
-* JavaScript
+* PostgreSQL
 
-## 🤖 Image Search / ML Backend
+### Tools
 
-Trendyfy also contains a separate Python-based image search service.
+* Git
+* GitHub
+* IntelliJ IDEA
+* Postman
 
-* Python
-* Flask
-* Flask-CORS
-* PyTorch
-* FAISS
-* NumPy
-* Pillow
-* Image Embeddings
-
-The ML service provides an **image-based product search** endpoint that processes an uploaded image and searches the product image index to return the closest matching product.
+---
 
 ## 🗄️ Database
 
-* PostgreSQL
+The application uses **PostgreSQL** as the database.
 
-Main application entities include:
+Main entities include:
 
 * Users
 * Categories
@@ -140,106 +116,54 @@ Main application entities include:
 * Order Items
 * Wishlist
 
----
+Initial product and category data is provided through the backend `data.sql` file.
 
-# ✨ Key Features
+The `data.sql` file contains product information such as:
 
-## 🛒 Shopping
-
-* Product listing
-* Product details
-* Category-based browsing
-* Sub-category support
-* Brand information
-* Product search
-* Search filtering
-* Sorting
-* Pagination
-* Product quantity management
-
-## 🛍️ Cart
-
-* Add to cart
-* Increase/decrease quantity
-* Remove products
-* Cart popup
-* Order summary
-
-## ❤️ Wishlist
-
-* Add product to wishlist
-* View wishlist
-* Remove product from wishlist
-
-## 📦 Orders
-
-* Checkout
-* Order placement
-* Order details
-* Order success page
-* Order management through Admin Panel
-
-## 💳 Payments
-
-The backend includes **Stripe payment integration** through dedicated payment controllers and services.
-
-Stripe can be configured according to the deployment environment.
-
-## 👨‍💼 Admin Dashboard
-
-The Admin Panel provides separate interfaces for:
-
-* Dashboard
-* Product Management
-* User Management
-* Order Management
-* Category Management
-
-Admins can manage products directly from the application instead of modifying the database manually.
+* Product Name
+* Description
+* Price
+* Quantity
+* Category
+* Sub-category
+* Brand
+* Product Image
 
 ---
 
-# 🤖 AI-Powered Image Search
-
-One of the additional features of Trendyfy is **image-based product search**.
-
-Users can upload an image and the ML backend processes the image using a pre-trained model and FAISS vector search.
-
-### Image Search Flow
+## 🏗️ Application Architecture
 
 ```text
-User uploads image
-        ↓
-React Frontend
-        ↓
-Python Flask ML Backend
-        ↓
-Image preprocessing
-        ↓
-Feature / Image Embedding
-        ↓
-FAISS Similarity Search
-        ↓
-Matching Product ID
-        ↓
-Product Result
-```
-
-The image search service runs on:
-
-```text
-http://localhost:5000
+                ┌─────────────────────┐
+                │    React Frontend   │
+                │     Port: 3000      │
+                └──────────┬──────────┘
+                           │
+                     REST API / Axios
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │   Spring Boot API   │
+                │     Port: 8082      │
+                └──────────┬──────────┘
+                           │
+                  Spring Data JPA
+                           │
+                           ▼
+                ┌─────────────────────┐
+                │     PostgreSQL      │
+                │     Port: 5432      │
+                └─────────────────────┘
 ```
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 
 ```text
 Trendyfy/
 │
 ├── backend/
-│   │
 │   ├── src/
 │   │   ├── main/
 │   │   │   ├── java/
@@ -259,65 +183,18 @@ Trendyfy/
 │   │   │
 │   │   ├── test/
 │   │   ├── pom.xml
-│   │   ├── Dockerfile
 │   │   └── mvnw
-│   │
-│   ├── frontend/
-│   │
-│   ├── ml_backend/
-│   │   ├── app.py
-│   │   ├── model.py
-│   │   ├── search.py
-│   │   ├── upload.py
-│   │   ├── bulid_index.py
-│   │   ├── requirement.txt
-│   │   └── static/
-│   │
-│   ├── docker-compose.yml
-│   └── README.md
+│
+├── frontend/
+│
+└── README.md
 ```
 
 ---
 
-# 🗃️ Database & Seed Data
+## ⚡ Getting Started
 
-The project uses **PostgreSQL** with Spring Data JPA and Hibernate.
-
-The `data.sql` file contains initial seed data for the application.
-
-### Predefined Categories
-
-* Men
-* Women
-* Electronics
-* Beauty
-* Home & Kitchen
-* Sports
-* Books
-* Toys
-* Groceries
-* Furniture
-
-### Product Data
-
-The seed file also contains products with information such as:
-
-* Product name
-* Description
-* Price
-* Quantity
-* Category
-* Sub-category
-* Brand
-* Product image
-
-This allows the application to display sample products immediately after database initialization.
-
----
-
-# ⚡ Getting Started
-
-## 1️⃣ Clone Repository
+### 1. Clone Repository
 
 ```bash
 git clone https://github.com/P-lab-code/Trendyfy.git
@@ -326,26 +203,23 @@ cd Trendyfy
 
 ---
 
-# ☕ Backend Setup
+## ☕ Backend Setup
 
-## Prerequisites
-
-Make sure the following are installed:
+### Prerequisites
 
 * Java 17+
 * Maven
 * PostgreSQL
-* Git
 
-### Create PostgreSQL Database
+### Create Database
 
-Create a PostgreSQL database named:
+Create a PostgreSQL database:
 
 ```text
 ecommerce
 ```
 
-Then configure your database credentials in:
+Configure your database credentials in:
 
 ```text
 backend/src/main/resources/application.properties
@@ -359,53 +233,37 @@ spring.datasource.username=YOUR_USERNAME
 spring.datasource.password=YOUR_PASSWORD
 ```
 
-The application runs on:
-
-```text
-http://localhost:8082
-```
-
-## Run Backend
+### Run Backend
 
 ```bash
 cd backend
 mvn spring-boot:run
 ```
 
-Or on Windows:
+Backend runs on:
 
-```bash
-mvnw.cmd spring-boot:run
+```text
+http://localhost:8082
 ```
 
 ---
 
-# ⚛️ Frontend Setup
-
-## Prerequisites
-
-* Node.js
-* npm
-
-Navigate to the frontend:
-
-```bash
-cd frontend
-```
+## ⚛️ Frontend Setup
 
 Install dependencies:
 
 ```bash
+cd frontend
 npm install
 ```
 
-Start the React application:
+Start the application:
 
 ```bash
 npm start
 ```
 
-Frontend:
+Frontend runs on:
 
 ```text
 http://localhost:3000
@@ -413,181 +271,27 @@ http://localhost:3000
 
 ---
 
-# 🤖 ML Backend Setup
-
-Navigate to:
-
-```bash
-cd ml_backend
-```
-
-Install Python dependencies:
-
-```bash
-pip install -r requirement.txt
-```
-
-Run the Flask server:
-
-```bash
-python app.py
-```
-
-ML backend:
+## 🔄 Application Flow
 
 ```text
-http://localhost:5000
-```
-
-The image search API is available under:
-
-```text
-/api/v1/search-image
-```
-
----
-
-# 🐳 Docker
-
-The project includes Docker configuration for running the application stack.
-
-Build and start the services:
-
-```bash
-docker compose up --build
-```
-
-The Docker Compose configuration includes:
-
-* Spring Boot Backend
-* React Frontend
-* PostgreSQL Database
-
----
-
-# 🔄 CI/CD
-
-The repository contains GitHub Actions workflows for:
-
-```text
-.github/
-└── workflows/
-    ├── backend.yml
-    └── frontend.yml
-```
-
-These workflows can be used to automate build and CI processes for the backend and frontend.
-
----
-
-# 🧪 Testing
-
-### Backend
-
-```bash
-cd backend
-mvn test
-```
-
-### Frontend
-
-```bash
-cd frontend
-npm test
+User
+  ↓
+React Frontend
+  ↓
+Axios
+  ↓
+Spring Boot REST APIs
+  ↓
+Service Layer
+  ↓
+Spring Data JPA / Hibernate
+  ↓
+PostgreSQL
 ```
 
 ---
 
-# 🔌 Backend API Modules
-
-The Spring Boot backend is organized into REST controllers for different application modules:
-
-```text
-Authentication
-Products
-Categories
-Cart
-Orders
-Wishlist
-Admin
-Payments
-```
-
-The backend follows a layered architecture using:
-
-```text
-Controller
-    ↓
-Service
-    ↓
-Repository
-    ↓
-Database
-```
-
-DTOs and mappers are used to structure API requests and responses.
-
----
-
-# 🏗️ Architecture
-
-```text
-                    ┌─────────────────────┐
-                    │    React Frontend   │
-                    │     Port: 3000      │
-                    └──────────┬──────────┘
-                               │
-                         REST API / Axios
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │   Spring Boot API   │
-                    │     Port: 8082      │
-                    └──────────┬──────────┘
-                               │
-                    Spring Data JPA
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │     PostgreSQL      │
-                    │     Port: 5432      │
-                    └─────────────────────┘
-
-                    
-```
-
----
-
-# 🔒 Security Note
-
-Never commit sensitive credentials such as:
-
-* Database passwords
-* JWT secrets
-* Stripe secret keys
-* API keys
-* Production credentials
-
-Use environment variables or a secure secrets manager for production deployments.
-
----
-
-# 🚀 Future Improvements
-
-Possible future improvements include:
-
-* Product reviews and ratings
-* Advanced recommendation system
-* Improved AI product recommendations
-* Email notifications
-* Advanced analytics
-* Production cloud deployment
-* Improved payment configuration
-* More automated test coverage
-
----
-
-# 👩‍💻 Developer
+## 👨‍💻 Developer
 
 ### Pooja Tiwari
 
@@ -595,12 +299,12 @@ Java Full Stack Developer | MCA
 
 📍 Nagpur, Maharashtra
 
-🔗 **GitHub:** https://github.com/P-lab-code
+🔗 GitHub: https://github.com/P-lab-code
 
 ---
 
 ## ⭐ Project
 
-If you find this project useful or interesting, consider giving the repository a ⭐ on GitHub.
+If you like this project, consider giving the repository a ⭐.
 
-**Trendyfy — Shop Smart. Shop Trendy. 🛍️**
+**Trendyfy — Full-Stack E-Commerce Application**
