@@ -553,14 +553,7 @@ DTOs and mappers are used to structure API requests and responses.
                     │     Port: 5432      │
                     └─────────────────────┘
 
-                               │
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │ Python ML Backend   │
-                    │     Port: 5000      │
-                    │ Flask + FAISS       │
-                    └─────────────────────┘
+                    
 ```
 
 ---
